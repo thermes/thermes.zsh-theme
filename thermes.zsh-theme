@@ -6,11 +6,17 @@ ZSH_THEME_GIT_PROMPT_DIRTY=""
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%}+"
-ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[magenta]%}!"
+ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[cyan]%}*"
 ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%}-"
-ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[blue]%}>"
-ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[cyan]%}#"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[yellow]%}?"
+ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[cyan]%}>"
+ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[magenta]%}#"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[blue]%}?"
+ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[yellow]%}$"
+
+ZSH_THEME_GIT_PROMPT_EQUAL_REMOTE="%{$fg[green]%}="
+ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE="%{$fg[yellow]%}>"
+ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="%{$fg[yellow]%}<"
+ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE="%{$fg[red]%}<>"
 
 local _user='%{$fg[blue]%}%n%{$reset_color%}'
 local _hostname='%{$fg[green]%}%m%{$reset_color%}'
@@ -19,7 +25,7 @@ local _symbol='%(?..%{$fg[red]%})%(!.#.$)%{$reset_color%}'
 
 local _return_status='%(?..%{$fg[red]%}%S%?%s%{$reset_color%})'
 local _jobs_no='%(1j.%{$fg[yellow]%}%%%j%{$reset_color%}.)'
-local _git_prompt='$(git_prompt_status) $(git_prompt_info)'
+local _git_prompt='$(git_prompt_status) $(git_remote_status) $(git_prompt_info)'
 local _hist_no='%{$fg[cyan]%}!%h%{$reset_color%}'
 local _time='%{$fg[green]%}[%*]%{$reset_color%}'
 
