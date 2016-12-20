@@ -12,20 +12,17 @@ ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[blue]%}>"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[cyan]%}#"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[yellow]%}?"
 
-# display exitcode on the right when >0
-return_code="%(?..%{$fg[red]%}%S%?%s%{$reset_color%})"
+local _user='%{$fg[blue]%}%n%{$reset_color%}'
+local _hostname='%{$fg[green]%}%m%{$reset_color%}'
+local _cwd='%{$fg[yellow]%}%~%{$reset_color%}'
+local _symbol='%(?..%{$fg[red]%})%(!.#.$)%{$reset_color%}'
 
-PROMPT='\
-%{$fg[blue]%}%n%{$reset_color%}\
-@\
-%{$fg[green]%}%m%{$reset_color%}\
-:\
-%{$fg[yellow]%}%~%{$reset_color%}
-%(?..%{$fg[red]%})%(!.#.$)%{$reset_color%} '
+local _return_status='%(?..%{$fg[red]%}%S%?%s%{$reset_color%})'
+local _git_prompt='$(git_prompt_status) $(git_prompt_info)'
+local _hist_no='%{$fg[cyan]%}!%h%{$reset_color%}'
+local _time='%{$fg[green]%}[%*]%{$reset_color%}'
 
-RPROMPT='\
-${return_code} \
-$(git_prompt_status) \
-$(git_prompt_info) \
-%{$fg[cyan]%}!%h%{$reset_color%} \
-%{$fg[green]%}[%*]%{$reset_color%}'
+PROMPT="${_user}@${_hostname}:${_cwd}
+${_symbol} "
+
+RPROMPT="${_return_status} ${_git_prompt} ${_hist_no} ${_time}"
