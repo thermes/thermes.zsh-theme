@@ -18,6 +18,7 @@ local _cwd='%{$fg[yellow]%}%~%{$reset_color%}'
 local _symbol='%(?..%{$fg[red]%})%(!.#.$)%{$reset_color%}'
 
 local _return_status='%(?..%{$fg[red]%}%S%?%s%{$reset_color%})'
+local _jobs_no='%(1j.%{$fg[yellow]%}%%%j%{$reset_color%}.)'
 local _git_prompt='$(git_prompt_status) $(git_prompt_info)'
 local _hist_no='%{$fg[cyan]%}!%h%{$reset_color%}'
 local _time='%{$fg[green]%}[%*]%{$reset_color%}'
@@ -25,4 +26,4 @@ local _time='%{$fg[green]%}[%*]%{$reset_color%}'
 PROMPT="${_user}@${_hostname}:${_cwd}
 ${_symbol} "
 
-RPROMPT="${_return_status} ${_git_prompt} ${_hist_no} ${_time}"
+RPROMPT="${_return_status} ${_jobs_no} ${_git_prompt} ${_hist_no} ${_time}"
